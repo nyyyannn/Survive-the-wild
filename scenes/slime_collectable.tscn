@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c706ls57p4j53"]
+
+[ext_resource type="Texture2D" uid="uid://jqo10kse666n" path="res://art/SlimeIcon.png" id="1_1bc0m"]
+
+[node name="slime_collectable" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1bc0m")

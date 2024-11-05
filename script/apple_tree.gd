@@ -4,6 +4,9 @@ var state = "no_apples" #no_apples, apples
 var player_in_area = false
 
 var apple = preload("res://scenes/apple_collectable.tscn")
+var player = null
+
+@export var item: InvItem
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +19,7 @@ func _process(delta):
 	if state == "apples":
 		$AnimatedSprite2D.play("apples")
 		if player_in_area:
-			if Input.is_action_just_pressed("e"):
+			if Input.is_action_just_pressed("c"):
 				state = "no_apples"
 				drop_apple()
 
@@ -24,6 +27,7 @@ func _process(delta):
 func _on_pickable_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
+		player = body
 
 func _on_pickable_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -38,6 +42,6 @@ func drop_apple():
 	var apple_instance = apple.instantiate()
 	apple_instance.global_position = $Marker2D.global_position
 	get_parent().add_child(apple_instance)
-	
+	player.collect(item)
 	await get_tree().create_timer(3).timeout
 	$growth_timer.start()
