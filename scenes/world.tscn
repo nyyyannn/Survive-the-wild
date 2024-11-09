@@ -295,9 +295,6 @@ layer_2/tile_data = PackedInt32Array(-65544, 1114114, 1, -131070, 1114114, 1, 39
 [node name="player" parent="." instance=ExtResource("1_xhwpu")]
 position = Vector2(0, -1)
 
-[node name="Camera2D2" type="Camera2D" parent="player"]
-texture_filter = 1
-
 [node name="apple_tree" parent="." instance=ExtResource("6_c74uh")]
 position = Vector2(-30, 100)
 
@@ -305,10 +302,10 @@ position = Vector2(-30, 100)
 position = Vector2(73, -12)
 
 [node name="stick_collectible" parent="." instance=ExtResource("7_iopy6")]
-position = Vector2(-58, -33)
+position = Vector2(-99, -28)
 
 [node name="stick_collectible2" parent="." instance=ExtResource("7_iopy6")]
-position = Vector2(-58, 34)
+position = Vector2(-114, 145)
 
 [node name="collisions" type="StaticBody2D" parent="."]
 
@@ -328,6 +325,7 @@ polygon = PackedVector2Array(270, -73, 244, -55, 249, 16, 260, 27, 343, 27, 353,
 polygon = PackedVector2Array(369, 215, 370, 326, 338, 330, 326, 344, 329, 409, 333, 427, 492, 432, 513, 416, 512, 345, 495, 327, 478, 327, 476, 215, 455, 205)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="collisions"]
+position = Vector2(0, -1)
 polygon = PackedVector2Array(312, 456, 314, 334, 184, 333, 44, 330, 46, 437, 89, 481, 184, 478, 286, 476)
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="collisions"]
@@ -343,10 +341,9 @@ polygon = PackedVector2Array(-396, 560, -396, 560, -390, 975, -350, 996, -133, 9
 position = Vector2(153, 149)
 
 [node name="slime2" parent="." instance=ExtResource("8_7qp3o")]
-position = Vector2(-131, 77)
+position = Vector2(-103, 19)
 
 [node name="slime3" parent="." instance=ExtResource("8_7qp3o")]
-position = Vector2(4, 303)
+position = Vector2(-39, 277)
 
 [node name="world2" parent="." instance=ExtResource("9_mngfn")]
-position = Vector2(0, 2)
