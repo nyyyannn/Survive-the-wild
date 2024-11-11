@@ -30,11 +30,13 @@ func _physics_process(delta: float) -> void:
 				cutsceneending()
 			if !smoke_has_happened and pathfollower.progress_ratio >= 0.77 and !smoke_is_happening:
 				smoke_is_happening = true
+				toggle_smoke()
 				#toggle the smoke
 				await get_tree().create_timer(1).timeout
 				$world2openingcutScene/TileMapfinished.visible = true
 				$world2openingcutScene/TileMapunfinished.visible = false
 				#toggle the smoke
+				toggle_smoke()
 				await get_tree().create_timer(0.5).timeout
 				smoke_has_happened = true
 				smoke_is_happening = false
@@ -54,3 +56,13 @@ func cutsceneending():
 	player.camera.enabled = true
 	$world2openingcutScene.visible = false
 	$world2main.visible = true
+
+func toggle_smoke():
+	var smoke1 = $world2openingcutScene/SmokeParticles1
+	var smoke2 = $world2openingcutScene/SmokeParticles2
+	var smoke3 = $world2openingcutScene/SmokeParticles3
+	var smoke4 = $world2openingcutScene/SmokeParticles4
+	smoke1.emitting = !smoke1.emitting
+	smoke2.emitting = !smoke2.emitting
+	smoke3.emitting = !smoke3.emitting
+	smoke4.emitting = !smoke4.emitting

@@ -18,7 +18,7 @@ Players must balance combat, resource gathering, and exploration to survive in a
 
 ## Installation
 1. Clone the repository:
-    https://github.com/nyyyannn/Survive-the-wild
+	https://github.com/nyyyannn/Survive-the-wild
 2. Open the project on Godot
 3. Run the game from the Godot editor.
 
@@ -32,5 +32,3 @@ We're excited for you to contribute to Survive the Wild! Here's how you can get 
 5. Open a pull request so we can review and merge your contribution.
 
 Feel free to jump in!
-
-
