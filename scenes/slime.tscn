@@ -150,7 +150,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7q5nt"]
-radius = 5.0
+radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86od5"]
 radius = 6.0
@@ -171,7 +171,6 @@ animation = &"idle"
 frame_progress = 0.570961
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_7q5nt")
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -190,6 +189,7 @@ shape = SubResource("CircleShape2D_cb1wo")
 [node name="slime_collect_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="slime_collect_area"]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_1web6")
 disabled = true
 
