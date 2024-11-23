@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=3 uid="uid://chbbrh5qyd2ek"]
+
+[ext_resource type="Script" path="res://script/npc_quest.gd" id="1_r6jc4"]
+[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="1_x0dik"]
+
+[node name="npc_quest" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r6jc4")
+
+[node name="quest1_ui" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("1_x0dik")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Sylas:"
+
+[node name="Text" type="RichTextLabel" parent="quest1_ui"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 259.0
+offset_bottom = 130.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "Could you pick three sticks off the ground?
+"
+
+[node name="yesbutton1" type="Button" parent="quest1_ui"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 22.0
+offset_top = 37.0
+offset_right = 77.0
+offset_bottom = 68.0
+scale = Vector2(0.4, 0.4)
+text = "Yes"
+
+[node name="nobutton1" type="Button" parent="quest1_ui"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 37.0
+offset_right = 116.0
+offset_bottom = 68.0
+scale = Vector2(0.4, 0.4)
+text = "No"
+
+[node name="no_quest" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("1_x0dik")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Sylas:"
+
+[node name="Text" type="RichTextLabel" parent="no_quest"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 259.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "No quests currently."
+
+[node name="finished_quest" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("1_x0dik")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Sylas:"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 259.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "Good job!"
+
+[connection signal="pressed" from="quest1_ui/yesbutton1" to="." method="_on_yesbutton_1_pressed"]
+[connection signal="pressed" from="quest1_ui/nobutton1" to="." method="_on_nobutton_1_pressed"]

@@ -42,8 +42,13 @@ func _process(delta):
 				dir = choose([Vector2.RIGHT,Vector2.UP,Vector2.LEFT,Vector2.DOWN])
 			MOVE:
 				move(delta)
-	if Input.is_action_just_pressed("c"):
+	if Input.is_action_just_pressed(","):
 		$Dialogue.start()
+		is_roaming = false
+		is_chatting = true
+		$AnimatedSprite2D.play("idle")
+	if Input.is_action_just_pressed("quest"):
+		$npc_quest.next_quest()
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")
@@ -72,3 +77,10 @@ func _on_timer_timeout() -> void:
 func _on_dialogue_dialogue_finished() -> void:
 	is_chatting = false
 	is_roaming = true
+
+func _on_npc_quest_quest_menu_closed() -> void:
+		is_chatting = false
+		is_roaming = false
+
+func _on_player_stick_collected() -> void:
+	$npc_quest.stick_collected()
