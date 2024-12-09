@@ -1,9 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://di36qmqshi7vy"]
+[gd_scene load_steps=41 format=3 uid="uid://di36qmqshi7vy"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_2raiv"]
 [ext_resource type="Texture2D" uid="uid://ca82qssttw13s" path="res://art/character/survivalgame-player-green.png" id="2_obm44"]
 [ext_resource type="Resource" uid="uid://bgef7dgw7yeyq" path="res://inventory/items/player_inventory.tres" id="2_viw1p"]
 [ext_resource type="PackedScene" uid="uid://14mpe8ev64a" path="res://scenes/inventory_ui.tscn" id="4_f60wk"]
+[ext_resource type="PackedScene" uid="uid://dbhp61e4dori2" path="res://scenes/health_bar.tscn" id="5_txoj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pamk8"]
+radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er3ka"]
 atlas = ExtResource("2_obm44")
@@ -156,7 +160,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 6.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -323,7 +327,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5726u"]
-radius = 4.0
+radius = 6.08276
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -331,19 +335,18 @@ texture_filter = 1
 script = ExtResource("1_2raiv")
 inv = ExtResource("2_viw1p")
 
+[node name="damageDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damageDetection"]
+shape = SubResource("CircleShape2D_pamk8")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.78125, 1)
 sprite_frames = SubResource("SpriteFrames_a6s3b")
-animation = &"w-attack"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_5726u")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+animation = &"death"
+frame = 5
+frame_progress = 1.0
 
 [node name="Inventory_UI" parent="." instance=ExtResource("4_f60wk")]
 texture_filter = 1
@@ -353,3 +356,25 @@ offset_right = 44.0
 offset_bottom = -16.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("5_txoj7")]
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 12.0
+offset_bottom = -12.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+limit_left = -475
+limit_top = -380
+limit_right = 550
+limit_bottom = 995
+limit_smoothed = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_5726u")
+
+[connection signal="body_entered" from="damageDetection" to="." method="_on_damage_detection_body_entered"]
+[connection signal="body_exited" from="damageDetection" to="." method="_on_damage_detection_body_exited"]

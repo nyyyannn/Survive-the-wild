@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed = 50
 
 var health = 100
+var health_max = 100
+var health_min = 0 
 
 var dead = false
 var player_in_area = false
@@ -59,14 +61,18 @@ func death():
 func drop_slime():
 	slime.visible = true
 	$slime_collect_area/CollisionShape2D.disabled = false
-	await get_tree().create_timer(5).timeout
+	slime_collect()
+	
+func slime_collect():
+	await get_tree().create_timer(1.5).timeout
 	slime.visible = false
-	$slime_collect_area/CollisionShape2D.disabled = true
-
+	if player and player.has_method("collect"):
+		player.collect(itemRes)
+	queue_free()
+		
 func _on_slime_collect_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player = body
-		player.collect(itemRes)
-		queue_free()
-		
-		
+
+func slime_check():
+	pass
