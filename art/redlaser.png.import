@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b37qcyxkva5s8"
-path="res://.godot/imported/Human-Worker-Red.png-78f0d7eead3b86821a85112a5e866a3a.ctex"
+uid="uid://c2uvtmncnn2vw"
+path="res://.godot/imported/redlaser.png-99f276461c0a26d6d043ccbef4dda49f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character/Human-Worker-Red.png"
-dest_files=["res://.godot/imported/Human-Worker-Red.png-78f0d7eead3b86821a85112a5e866a3a.ctex"]
+source_file="res://art/redlaser.png"
+dest_files=["res://.godot/imported/redlaser.png-99f276461c0a26d6d043ccbef4dda49f.ctex"]
 
 [params]
 

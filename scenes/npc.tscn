@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://bnwndyqpaprl1"]
 
 [ext_resource type="Script" path="res://script/npc.gd" id="1_n7lgl"]
-[ext_resource type="Texture2D" uid="uid://b37qcyxkva5s8" path="res://art/character/Human-Worker-Red.png" id="2_0hub6"]
+[ext_resource type="Texture2D" uid="uid://b37qcyxkva5s8" path="res://art/Human-Worker-Red.png" id="2_0hub6"]
 [ext_resource type="PackedScene" uid="uid://d3orcteyxhx6n" path="res://dialogue/dialogue.tscn" id="3_mqk7f"]
 [ext_resource type="PackedScene" uid="uid://chbbrh5qyd2ek" path="res://scenes/npc_quest.tscn" id="4_2bwjt"]
 
@@ -160,12 +160,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arq3h"]
-radius = 5.0
+radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugyhi"]
 radius = 33.541
 
 [node name="NPC" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_n7lgl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

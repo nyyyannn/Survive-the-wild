@@ -26,12 +26,12 @@ func _process(delta):
 	if current_state == 0 or current_state == 1:
 		$AnimatedSprite2D.play("idle")
 	if Input.is_action_just_pressed(","):
-		$Dialogue.start()
+		$Dialogue2.start()
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")
 	if Input.is_action_just_pressed("quest"):
-		$npc_quest.next_quest()
+		$npc_quest2.next_quest()
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")
@@ -57,13 +57,14 @@ func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([0.5,1,1.5])
 	current_state = choose([IDLE,NEW_DIR,MOVE])
 
-func _on_dialogue_dialogue_finished() -> void:
-	is_chatting = false
+func _on_dialogue_2_dialogue_finished() -> void:
+	is_chatting = false	
 	is_roaming = true
 
-func _on_npc_quest_quest_menu_closed() -> void:
-		is_chatting = false
-		is_roaming = false
+func _on_npc_quest_2_quest_menu_closed() -> void:
+	is_chatting = false
+	is_roaming = false
 
-func _on_player_stick_collected() -> void:
-	$npc_quest.stick_collected()
+func _on_player_slime_collected() -> void:
+	$npc_quest2.slime_collected()
+# Replace with function body.

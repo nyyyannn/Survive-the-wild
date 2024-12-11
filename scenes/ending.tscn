@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://csr7fatqsskwr"]
+
+[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="1_au4hf"]
+
+[node name="ending" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -435.0
+offset_top = -240.0
+offset_right = 1556.0
+offset_bottom = 745.0
+texture = ExtResource("1_au4hf")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 455.0
+offset_right = 3678.0
+offset_bottom = 3208.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/normal_font_size = 250
+bbcode_enabled = true
+text = "You win! Game over :)"

@@ -6,6 +6,7 @@ signal stick_collected
 signal apple_collected
 signal slime_collected 
 
+
 var speed = 100
 var health = 100
 var health_max = 100
@@ -26,6 +27,7 @@ var arrow = preload("res://scenes/arrow.tscn")
 var mouse_loc_from_player = null
 
 @onready var camera = $Camera2D
+@onready var healthBar = $HealthBar
 
 func _physics_process(delta: float) -> void:
 	if !dead: 
@@ -66,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("death")
 		await get_tree().create_timer(1).timeout
 		$AnimatedSprite2D.visible=false
+		healthBar.visible = false
 
 
 
@@ -115,9 +118,9 @@ func player():
 func collect(item): 
 	inv.insert(item)
 	print(item)
-	if str(item) == "<Resource#-9223372002763471488>": #stick
+	if item.resource_path == ("res://inventory/items/stick.tres"): #stick
 		emit_signal("stick_collected")
-	if str(item) == "<Resource#-9223372001874279033>": #slime
+	if item.resource_path == ("res://inventory/items/slime.tres"):
 		emit_signal("slime_collected")
 	if str(item) == ("<Resource#-9223372003686218380>"): #apple
 		emit_signal("apple_collected")
@@ -133,3 +136,4 @@ func take_damage(damage):
 	health = health-damage
 	if health <= 0 and !dead:
 		dead = true
+		get_tree().change_scene_to_file("res://scenes/dead.tscn")

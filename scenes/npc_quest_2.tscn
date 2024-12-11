@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://chbbrh5qyd2ek"]
+[gd_scene load_steps=4 format=3 uid="uid://oslr5ieqf23w"]
 
-[ext_resource type="Script" path="res://script/npc_quest.gd" id="1_r6jc4"]
-[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="1_x0dik"]
+[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="1_67o86"]
+[ext_resource type="Script" path="res://script/npc_quest2.gd" id="1_g85gk"]
+[ext_resource type="PackedScene" uid="uid://gt5qrg6p2lcm" path="res://scenes/transition.tscn" id="3_5pnaf"]
 
-[node name="npc_quest" type="Control"]
+[node name="npc_quest2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_r6jc4")
+script = ExtResource("1_g85gk")
 
 [node name="quest1_ui" type="NinePatchRect" parent="."]
 visible = false
@@ -17,7 +18,7 @@ offset_left = -53.0
 offset_top = -73.0
 offset_right = 56.0
 offset_bottom = -16.0
-texture = ExtResource("1_x0dik")
+texture = ExtResource("1_67o86")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -30,7 +31,7 @@ offset_top = -1.0
 offset_right = 76.0
 offset_bottom = 22.0
 scale = Vector2(0.5, 0.5)
-text = "Sylas:"
+text = "Mark:"
 
 [node name="Text" type="RichTextLabel" parent="quest1_ui"]
 layout_mode = 0
@@ -40,8 +41,7 @@ offset_right = 259.0
 offset_bottom = 130.0
 scale = Vector2(0.4, 0.4)
 bbcode_enabled = true
-text = "Could you pick five sticks off the ground?
-"
+text = "Can you kill all the slimes in this desert?"
 
 [node name="yesbutton1" type="Button" parent="quest1_ui"]
 modulate = Color(0, 1, 0, 1)
@@ -70,7 +70,7 @@ offset_left = -53.0
 offset_top = -73.0
 offset_right = 56.0
 offset_bottom = -16.0
-texture = ExtResource("1_x0dik")
+texture = ExtResource("1_67o86")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -83,7 +83,7 @@ offset_top = -1.0
 offset_right = 76.0
 offset_bottom = 22.0
 scale = Vector2(0.5, 0.5)
-text = "Sylas:"
+text = "Mark:"
 
 [node name="Text" type="RichTextLabel" parent="no_quest"]
 layout_mode = 0
@@ -93,7 +93,6 @@ offset_right = 259.0
 offset_bottom = 128.0
 scale = Vector2(0.4, 0.4)
 bbcode_enabled = true
-text = "No quests currently."
 
 [node name="finished_quest" type="NinePatchRect" parent="."]
 visible = false
@@ -102,7 +101,7 @@ offset_left = -53.0
 offset_top = -73.0
 offset_right = 56.0
 offset_bottom = -16.0
-texture = ExtResource("1_x0dik")
+texture = ExtResource("1_67o86")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -115,7 +114,7 @@ offset_top = -1.0
 offset_right = 76.0
 offset_bottom = 22.0
 scale = Vector2(0.5, 0.5)
-text = "Sylas:"
+text = "Mark:"
 
 [node name="Text" type="RichTextLabel" parent="finished_quest"]
 layout_mode = 0
@@ -125,7 +124,73 @@ offset_right = 259.0
 offset_bottom = 128.0
 scale = Vector2(0.4, 0.4)
 bbcode_enabled = true
-text = "Good job! Now head north until you find an entrance made of stone. A hot adventure awaits you. "
+text = "Thank you! Your final trial awaits, a sinister worm that spawns an army of its kin. Keep your distance, strike true, and put an end to this nightmare."
+
+[node name="finished_quest2" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("1_67o86")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="finished_quest2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Mark:"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 259.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "This worm is the last barrier to your freedom. Keep your distance—it deals double damage. Defeat it, and freedom is yours."
+
+[node name="finished_quest3" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("1_67o86")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="finished_quest3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Mark:"
+
+[node name="Text" type="RichTextLabel" parent="finished_quest3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 259.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "As a reward for ridding this desert of all slimes, I’ll restore your health. Prepare for teleportation in 10 seconds. Good luck!"
+
+[node name="transition" parent="." instance=ExtResource("3_5pnaf")]
 
 [connection signal="pressed" from="quest1_ui/yesbutton1" to="." method="_on_yesbutton_1_pressed"]
 [connection signal="pressed" from="quest1_ui/nobutton1" to="." method="_on_nobutton_1_pressed"]

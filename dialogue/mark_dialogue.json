@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Mark",
+		"text": "Welcome! You’ve made it farther than anyone else. Impressive."
+	},
+	{
+		"name": "You",
+		"text": "Thanks, I guess? Now, how about showing me the way out?"
+	},
+	{
+		"name": "Mark",
+		"text": "Not so fast. There’s a problem that needs solving first. Take care of it, and I’ll point you in the right direction."
+	},
+	{
+		"name": "You",
+		"text": "Fine, what’s the catch?"
+	},
+	{
+		"name": "Mark",
+		"text": "It’s those annoying slimes again. Get rid of them, but be careful—they’re toxic even after death."
+	},
+	{
+		"name": "You",
+		"text": "Got it. Leave it to me."
+	}
+]

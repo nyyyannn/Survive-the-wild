@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1y7cwojhtfcn"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_player2.gd" id="1_pbww6"]
+[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="2_ggqov"]
+
+[node name="Dialogue2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 38.0
+offset_bottom = 43.0
+script = ExtResource("1_pbww6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = -16.0
+texture = ExtResource("2_ggqov")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 259.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+bbcode_enabled = true
+text = "Chatting.....
+"

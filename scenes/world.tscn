@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b3266bf8klhmu" path="res://art/environment/animatedcastledoors.png" id="5_cabd2"]
 [ext_resource type="PackedScene" uid="uid://cixy82h1xpuuw" path="res://scenes/apple_tree.tscn" id="6_c74uh"]
 [ext_resource type="PackedScene" uid="uid://c5h1v6v28a0e2" path="res://scenes/stick_collectible.tscn" id="7_iopy6"]
-[ext_resource type="PackedScene" uid="uid://cr7ggmu2nb0ky" path="res://scenes/slime.tscn" id="8_7qp3o"]
 [ext_resource type="PackedScene" uid="uid://wvnr5kcyq48l" path="res://scenes/world_2.tscn" id="9_mngfn"]
 [ext_resource type="PackedScene" uid="uid://bnwndyqpaprl1" path="res://scenes/npc.tscn" id="10_yt6jh"]
+[ext_resource type="PackedScene" uid="uid://gt5qrg6p2lcm" path="res://scenes/transition.tscn" id="12_x7xpx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vro3u"]
 texture = ExtResource("2_1ijue")
@@ -330,13 +330,30 @@ position = Vector2(0, -1)
 position = Vector2(-30, 100)
 
 [node name="apple_tree2" parent="." instance=ExtResource("6_c74uh")]
-position = Vector2(127, 185)
+position = Vector2(-236, -118)
 
-[node name="stick_collectible" parent="." instance=ExtResource("7_iopy6")]
-position = Vector2(-99, -28)
+[node name="sticks" type="StaticBody2D" parent="."]
 
-[node name="stick_collectible2" parent="." instance=ExtResource("7_iopy6")]
-position = Vector2(-114, 145)
+[node name="stick_collectible7" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(26, 272)
+
+[node name="stick_collectible4" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(328, 205)
+
+[node name="stick_collectible6" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(-361, 250)
+
+[node name="stick_collectible5" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(177, -253)
+
+[node name="stick_collectible" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(-359, -92)
+
+[node name="stick_collectible2" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(-114, -11)
+
+[node name="stick_collectible3" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(167, -102)
 
 [node name="collisions" type="StaticBody2D" parent="."]
 
@@ -396,24 +413,7 @@ polygon = PackedVector2Array(-481, 1001, -485, 979, -509, 989, -443, 1107, 529, 
 [node name="world2" parent="." instance=ExtResource("9_mngfn")]
 
 [node name="NPC" parent="." instance=ExtResource("10_yt6jh")]
-position = Vector2(-64, 162)
-
-[node name="Slimes" type="Node" parent="."]
-
-[node name="slime" parent="Slimes" instance=ExtResource("8_7qp3o")]
-visible = false
-position = Vector2(204, 186)
-
-[node name="slime2" parent="Slimes" instance=ExtResource("8_7qp3o")]
-visible = false
-position = Vector2(-121, 36)
-
-[node name="slime3" parent="Slimes" instance=ExtResource("8_7qp3o")]
-visible = false
-position = Vector2(-90, 273)
-
-[node name="stick_collectible3" parent="." instance=ExtResource("7_iopy6")]
-position = Vector2(28, 53)
+position = Vector2(-41, 175)
 
 [node name="transitionZone" type="Area2D" parent="."]
 
@@ -421,5 +421,8 @@ position = Vector2(28, 53)
 position = Vector2(140, -355)
 shape = SubResource("RectangleShape2D_8rhbh")
 
+[node name="transition" parent="." instance=ExtResource("12_x7xpx")]
+
 [connection signal="stick_collected" from="player" to="NPC" method="_on_player_stick_collected"]
 [connection signal="body_entered" from="transitionZone" to="." method="_on_transition_zone_body_entered"]
+[connection signal="animation_finished" from="transition" to="." method="_on_transition_animation_finished"]
