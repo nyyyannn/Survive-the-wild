@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var transition = $transition
+@onready var color_rect = $transition/ColorRect
+
+func _ready():
+	color_rect.visible=false
 
 func _on_transition_zone_body_entered(body: Node2D) -> void:
 	if body is Player:

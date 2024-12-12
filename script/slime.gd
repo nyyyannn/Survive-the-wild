@@ -11,6 +11,7 @@ var player_in_area = false
 var player
 
 @onready var slime = $slime_collectable
+@onready var death_sound = $death_sound
 @export var itemRes: InvItem
 
 func _ready():
@@ -51,6 +52,7 @@ func take_damage(damage):
 
 func death():
 	dead = true
+	death_sound.play()
 	$AnimatedSprite2D.play("death")
 	await get_tree().create_timer(1).timeout
 	drop_slime()

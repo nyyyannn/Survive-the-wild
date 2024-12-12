@@ -6,6 +6,8 @@ signal stick_collected
 signal apple_collected
 signal slime_collected 
 
+@onready var arrowShot = $arrow_shot
+@onready var dead_player = $dead_player
 
 var speed = 100
 var health = 100
@@ -53,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		$Marker2D.look_at(mouse_position)
 		
 		if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown:
+			arrowShot.play()
 			bow_cooldown = false
 			var arrow_instance = arrow.instantiate()
 			arrow_instance.rotation = $Marker2D.rotation
@@ -136,4 +139,6 @@ func take_damage(damage):
 	health = health-damage
 	if health <= 0 and !dead:
 		dead = true
+		dead_player.play()
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://scenes/dead.tscn")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://cr7ggmu2nb0ky"]
+[gd_scene load_steps=30 format=3 uid="uid://cr7ggmu2nb0ky"]
 
 [ext_resource type="Script" path="res://script/slime.gd" id="1_yn5il"]
 [ext_resource type="Resource" uid="uid://dmb64nbwabfk5" path="res://inventory/items/slime.tres" id="2_2dy3v"]
 [ext_resource type="Texture2D" uid="uid://daw16mplxjcnv" path="res://art/character/survivalgame-enemy-slime.png" id="2_xf54n"]
 [ext_resource type="PackedScene" uid="uid://c706ls57p4j53" path="res://scenes/slime_collectable.tscn" id="4_8vmq7"]
 [ext_resource type="PackedScene" uid="uid://dbhp61e4dori2" path="res://scenes/health_bar.tscn" id="5_i2b8g"]
+[ext_resource type="AudioStream" uid="uid://ck8pj8gtua0kw" path="res://audio/goopy-slime-4-219777.mp3" id="6_2dft6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fo4m"]
 atlas = ExtResource("2_xf54n")
@@ -201,6 +202,10 @@ offset_left = -5.0
 offset_top = -9.0
 offset_right = 5.0
 offset_bottom = -6.0
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2dft6")
+volume_db = -0.695
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
