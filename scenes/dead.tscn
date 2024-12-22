@@ -1,38 +1,167 @@
-[gd_scene load_steps=4 format=3 uid="uid://dks41m0uoainu"]
+[gd_scene load_steps=18 format=3 uid="uid://dks41m0uoainu"]
 
-[ext_resource type="Texture2D" uid="uid://dutmknsmvm5wc" path="res://art/inventory_art/inventory-slot.png" id="1_btyi8"]
-[ext_resource type="Script" path="res://scenes/dead.gd" id="1_ts3pa"]
+[ext_resource type="Script" path="res://script/dead.gd" id="1_ts3pa"]
 [ext_resource type="AudioStream" uid="uid://iu53ixa51c64" path="res://audio/8-bit-video-game-lose-sound-version-1-145828.mp3" id="3_kktyc"]
+[ext_resource type="Texture2D" uid="uid://dog05gni65i6p" path="res://art/environment/mainmenu.jpg" id="3_w8u12"]
+[ext_resource type="FontFile" uid="uid://bitw05v3lyfmg" path="res://fonts/grapesoda/GrapeSoda.ttf" id="4_bukml"]
+[ext_resource type="Texture2D" uid="uid://ca82qssttw13s" path="res://art/character/survivalgame-player-green.png" id="5_y04ns"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5s1ke"]
+texture = ExtResource("3_w8u12")
+modulate_color = Color(0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5wve"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viq0t"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia2o7"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0agw7"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xbfu"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk6rk"]
+atlas = ExtResource("5_y04ns")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfaat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5wve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viq0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia2o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xbfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk6rk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbunj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82adr"]
+bg_color = Color(0.787759, 0.787759, 0.787759, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrvsp"]
+bg_color = Color(0.646029, 0.646029, 0.646029, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_401lk"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="dead" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ts3pa")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = -73.0
-offset_top = -61.0
-offset_right = 1533.0
-offset_bottom = 769.0
-texture = ExtResource("1_btyi8")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-
-[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 300.0
-offset_right = 3271.0
-offset_bottom = 1987.0
-scale = Vector2(0.4, 0.4)
-theme_override_font_sizes/normal_font_size = 250
-bbcode_enabled = true
-text = "You died! Game over :("
 
 [node name="player_dead" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kktyc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5s1ke")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = -367.0
+offset_right = 626.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("4_bukml")
+theme_override_font_sizes/font_size = 100
+text = "The forest defeated you! 
+You lose!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, 364)
+scale = Vector2(6.875, 7.625)
+sprite_frames = SubResource("SpriteFrames_mfaat")
+frame = 5
+frame_progress = 1.0
+
+[node name="returntomainmenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -145.0
+offset_right = 199.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.616025, 0.542551, 0.130491, 1)
+theme_override_colors/font_pressed_color = Color(0.615686, 0.541176, 0.129412, 1)
+theme_override_colors/font_focus_color = Color(0.615686, 0.541176, 0.129412, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bukml")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbunj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82adr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrvsp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_401lk")
+text = "Return to main menu"
+
+[connection signal="pressed" from="returntomainmenu" to="." method="_on_returntomainmenu_pressed"]

@@ -355,6 +355,21 @@ position = Vector2(-114, -11)
 [node name="stick_collectible3" parent="sticks" instance=ExtResource("7_iopy6")]
 position = Vector2(167, -102)
 
+[node name="stick_collectible8" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(-459, -239)
+
+[node name="stick_collectible9" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(531, 266)
+
+[node name="stick_collectible10" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(520, -125)
+
+[node name="stick_collectible11" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(273, 284)
+
+[node name="stick_collectible12" parent="sticks" instance=ExtResource("7_iopy6")]
+position = Vector2(42, -347)
+
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]

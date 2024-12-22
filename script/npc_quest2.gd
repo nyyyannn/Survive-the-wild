@@ -14,7 +14,7 @@ func _ready():
 
 func _process(delta):
 	if quest1_active:
-		if slime == 1:
+		if slime == 7:
 			print("quest 1 completed")
 			quest1_active = false
 			quest1_completed = true
@@ -49,11 +49,11 @@ func slime_collected():
 
 func play_finish_quest_anim():
 	$finished_quest.visible = true
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(30).timeout
 	$finished_quest2.visible = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(10).timeout
 	$finished_quest3.visible = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(10).timeout
 	transition.play("fade_out")
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://scenes/boss_fight.tscn")

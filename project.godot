@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Survive the Wild"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
 [autoload]
 
-Global="*res://script/Global.gd"
+AudioPlayer="*res://scenes/audio_player.tscn"
 
 [display]
 

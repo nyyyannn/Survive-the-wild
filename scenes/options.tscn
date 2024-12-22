@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmjdesfbvwjs6"]
+
+[ext_resource type="Texture2D" uid="uid://dog05gni65i6p" path="res://art/environment/mainmenu.jpg" id="1_pugt6"]
+[ext_resource type="Script" path="res://script/options.gd" id="1_u51cq"]
+[ext_resource type="FontFile" uid="uid://bitw05v3lyfmg" path="res://fonts/grapesoda/GrapeSoda.ttf" id="2_aksmm"]
+[ext_resource type="FontFile" uid="uid://bn4bs8l8fi2x2" path="res://fonts/sleepy_moody/Sleepy Moody.otf" id="4_tlkvn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q08q4"]
+texture = ExtResource("1_pugt6")
+modulate_color = Color(0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spxur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_822q1"]
+bg_color = Color(0.787759, 0.787759, 0.787759, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld0of"]
+bg_color = Color(0.646029, 0.646029, 0.646029, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m35j"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u51cq")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q08q4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.0
+offset_top = -327.0
+offset_right = 364.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.180392, 0.545098, 0.341176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_aksmm")
+theme_override_font_sizes/font_size = 100
+text = "Options
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -133.0
+offset_right = -54.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 1058.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("4_tlkvn")
+theme_override_font_sizes/normal_font_size = 100
+text = " Navigation : ← (A) ↑ (W) ↓ (S) → (D) 
+ Shoot an arrow : E + left click
+ Open Inventory : I
+ Chat with NPC : Comma
+ Continue chatting : Spacebar 
+ Get a quest : Q 
+ Collect apples : C
+ 
+
+-> Chat with the NPC before starting a quest. Every NPC has a quest. 
+⚠Make sure to accept the quest before completing it.
+-> The player cannot move when shooting. Click E to disable the bow and move again. 
+
+                            GOOD LUCK!"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -286.0
+offset_right = 181.0
+offset_bottom = -235.0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.615686, 0.541176, 0.129412, 1)
+theme_override_colors/font_pressed_color = Color(0.615686, 0.541176, 0.129412, 1)
+theme_override_colors/font_focus_color = Color(0.615686, 0.541176, 0.129412, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aksmm")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_spxur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_822q1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ld0of")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2m35j")
+text = "Back"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
